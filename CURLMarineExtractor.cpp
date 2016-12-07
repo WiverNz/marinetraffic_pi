@@ -61,7 +61,7 @@ std::string CURLMarineExtractor::get(const std::string &url) throw(std::runtime_
 
 std::string CURLMarineExtractor::getByArea(double sw_x, double sw_y, double ne_x, double ne_y, int zoom, int station, double centerx, double centery)
 {
-    std::string url = "http://ship.hol.es?";
+    std::string url = "http://marinetraffic.herokuapp.com?";
     std::string format = "sw_x=%1$.1f&sw_y=%2$.1f&ne_x=%3$.1f&ne_y=%4$.1f&zoom=%5%&station=%6%";
     url.append((boost::format(format) % sw_x % sw_y % ne_x % ne_y
                                      % zoom % station).str());

@@ -24,27 +24,7 @@
 
 CDataReader::CDataReader()
 {
-    //    try
-    //    {
-    //        std::stringstream ss;
-    //        // send your JSON above to the parser below, but populate ss first
 
-
-    //        boost::property_tree::ptree pt;
-    //        boost::property_tree::read_json(ss, pt);
-
-    //        BOOST_FOREACH(boost::property_tree::ptree::value_type &v, pt.get_child("particles.electron"))
-    //        {
-    //            assert(v.first.empty()); // array elements have no names
-    //            std::cout << v.second.data() << std::endl;
-    //            // etc
-    //        }
-    //        return;
-    //    }
-    //    catch (std::exception const& e)
-    //    {
-    //        std::cerr << e.what() << std::endl;
-    //    }
 }
 
 CDataReader::~CDataReader()
@@ -54,7 +34,7 @@ CDataReader::~CDataReader()
 
 void CDataReader::clearData()
 {
-    for (auto *shipInfo : m_ships)
+    for (auto shipInfo : m_ships)
     {
         delete shipInfo;
         shipInfo = nullptr;
@@ -146,7 +126,7 @@ void CDataReader::drawShip(FullShipInfo *shipInfo, wxDC &dcIn)
             _T("marinetraffic_pi") + wxFileName::GetPathSeparator() +
             _T("data") + wxFileName::GetPathSeparator();
     //  Is SVG available?
-    wxBitmap live = GetBitmapFromSVGFile(m_shareLocn + _T("wmm_live.svg"), w, h);
+    wxBitmap live = GetBitmapFromSVGFile(m_shareLocn + _T("ContainerShipTopRed.svg"), w, h);
     if(!live.IsOk())
     {
         icon = wxBitmap(_img_wmm_live->GetWidth(), _img_wmm_live->GetHeight());
