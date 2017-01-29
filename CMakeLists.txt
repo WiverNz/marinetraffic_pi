@@ -101,6 +101,10 @@ SET(SRC_MARINETRAFFIC
                 CURLMarineExtractor.cpp
                 FullShipInfo.h
                 FullShipInfo.cpp
+                InterfaceMTDialog.h
+                InterfaceMTDialog.cpp
+                MarineTrafficDialog.h
+                MarineTrafficDialog.cpp
  	)
 
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_MARINETRAFFIC})

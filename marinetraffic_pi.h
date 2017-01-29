@@ -59,6 +59,7 @@
 #include "nmea0183/nmea0183.h"
 #include "DataReader.h"
 #include "FullShipInfo.h"
+#include "MarineTrafficDialog.h"
 
 class CDataReader;
 
@@ -106,7 +107,7 @@ public:
 
 private:
     wxWindow *m_parent_window;
-    demoWindow *m_pdemo_window;
+    MarineTrafficDialog *m_marineDialog = nullptr;
     wxAuiManager *m_AUImgr;
     int m_show_id;
     int m_hide_id;
@@ -117,37 +118,7 @@ private:
 
 class demoWindow : public wxWindow
 {
-protected:
-    wxTextCtrl *m_latMinTCtrl;
-    wxTextCtrl *m_latMaxTCtrl;
-    wxTextCtrl *m_lonMinTCtrl;
-    wxTextCtrl *m_lonMaxTCtrl;
-    wxTextCtrl *m_latCentTCtrl;
-    wxTextCtrl *m_lonCentTCtrl;
-    wxTextCtrl *m_zoomTCtrl;
-    virtual void updateDataReader(wxCommandEvent &event);
-    PlugIn_ViewPort m_lastVp;
-    CDataReader *m_pDataReader;
 
-    wxTextCtrl *m_proxySiteTCtrl;
-    wxTextCtrl *m_proxyPortTCtrl;
-    wxCheckBox *m_enableProxyBox;
-public:
-    demoWindow(wxWindow *pparent, wxWindowID id);
-    ~demoWindow();
-
-    void SetCurrentViewPort(PlugIn_ViewPort &vp);
-
-    void OnPaint(wxPaintEvent& event);
-    void SetSentence(wxString &sentence);
-    void OnSize(wxSizeEvent& event);
-    void setDataReader(CDataReader *dataReader);
-
-    wxString          m_NMEASentence;
-    double            mLat, mLon, mSog, mCog, mVar;
-
-
-    DECLARE_EVENT_TABLE()
 };
 
 
